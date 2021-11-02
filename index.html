@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!-- font-awesome-cdn -->
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title> Sales Record </title>
+
+</head>
+
+<body>
+
+    <div class="container-md border p-2.5 ">
+        <div class="navbar">
+            <div class="title-text">
+                <h3>Record Sale</h3>
+            </div>
+
+            <div class="nav-btn d-flex">
+                <div class="nabar-select ">
+                    <select class="form-select form-select-lg" aria-label=".form-select-lg example">
+                        <option selected>Customer</option>
+                        <option value="1">hassan</option>
+                        <option value="2">Adan</option>
+                        <option value="3">Mohamed</option>
+                    </select>
+                </div>
+                <button class="btn btn-outline-dark mx-3 "><i class="fas fa-user"></i>New Customer</button>
+            </div>
+        </div>
+
+        <!-- form starts here -->
+
+        <form action="/index.html" name="sale-record" id="sale-form">
+            <!-- 1st row or section -->
+            <div class="row border-top mb-3">
+                <!--first-row column 1 -->
+                <div class="col-6 ">
+                    <label class="block" for="prod/services">Product/services</label>
+                    <select class="form-select" id="product-selected">
+                        <option disabled selected>Select Product</option>
+                        <option value="nokia" name="Nokia 3310">Nokia 3310</option>
+                        <option value="hpLap"name="Hp Laptop">Hp Laptop</option>
+                        <option value="nk-p" name="Nokia 3310(Pending)">Nokia 3310(Pending)</option>
+                        <option value="cargo" name="Cargo Management System-Monthly Subscription">Cargo Management System-Monthly Subscription</option>
+                        <option value="bulk-sms" name="Bulk SMS Account Setup">Bulk SMS Account Setup</option>
+                    </select>
+                    
+                    <div class="summary-display bg-light  mt-3 border rounded  pb-5 pt-0" id="disp"> 
+                        <label class="px-3" for="">Summary</label>
+                        <div class="summary-message">
+                            <!-- preserved for summary info of the selected option -->
+                            
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 1st-row col-2 -->
+                <div class="col-6 ">
+                    <label for="quantity">Quantity</label>
+                    <div class="quantity-input-div mb-3 d-flex border ">
+                        <i class="fas fa-list-ol  p-2 rounded-0"></i>
+                        <input type="text" class="form-control rounded-0" id="qty" value="1">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 ">
+                            <label for="selling-price">Selling Price</label>
+                            <div class="Selling-input-div rounded ">
+                                <input type="text" readonly class="form-control" id="sale-price">
+                            </div>
+                        </div>
+
+                        <div class="col-6 ">
+                            <label for="selling-price">Total Price</label>
+                            <div class="Selling-input-div d-flex">
+                                <input type="text" readonly class="form-control rounded-0" id="total-price">
+                                <!-- <i class="fal fa-plus"></i> -->
+                                <button class="btn btn-md orange rounded-0" id="addBtn">+Add</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+            <!-- 2n row or section -->
+            <table class="table table-striped border-bottom mb-5">
+                <thead>
+                    <tr>
+                        <th scope="col " class=" col-3 border">Name</th>
+                        <th scope="col " class=" col-2 border">Quantity</th>
+                        <th scope="col " class=" col-2 border">Price</th>
+                        <th scope="col " class=" col-2 border">Total</th>
+                        <th scope="col " class=" col-2 border">VAT</th>
+                        <th scope="col " class=" col-2 border"></th>
+                    </tr>
+                </thead>
+                <tbody id="record-list">
+                    <!-- preserved for sales display -->
+
+                </tbody>
+            </table>
+
+            <!-- 3rd row or summary-section -->
+            <div id="summary-section">
+                <div class="d-flex ">
+                    <i class="fas fa-list"></i>
+                    <label for="" class="px-2">Summary</label>
+                </div>
+                <div class="row border-top mb-3">
+                    <!-- col1-summary-section-->
+                    <div class="col-6 ">
+                        <div class="row">
+                            <!-- col1-label -->
+                        <div class="col-4 d-block">
+                           <div class="total d-flex mb-4 mt-2"> 
+                            <label for="">Total:</label> 
+                            <div readonly class="amount-display mx-1">0</div>
+                        </div>
+                           <div class="mb-4 "> <label for="">Discount:</label></div>
+                           <div class="mb-4 "> <label for="">Amount Paid(Initial):</label></div>
+                           <div > <label for="">Balance:</label></div>
+                        </div>
+                        <!-- col2-form-controls -->
+                        <div class="col-8">
+                            <div class="quantity-dsplay mt-2 mb-3">
+                                <div class="qty d-flex justify-content-end"> 
+                                    <label for="">Quantity:</label> 
+                                    <div readonly class="amount-display mx-1">0</div>
+                                </div>
+                            </div>
+                            <div class="discount-div mb-2">
+                                <input type="text" readonly class=" form-control p-1 bg-light rounded" value="0.0">
+                            </div>
+                            <div class="initial-amt-div mb-2">
+                                <input id="totalAmt" type="text" readonly class="form-control p-1  bg-light" value="0.0">
+                            </div>
+                            <div class="balance-div">
+                                <input type="text" readonly class=" border-0  form-control p-1 " value="0">
+                            </div>
+                            
+                        </div>
+                        <!-- date selection -->
+                        <div class="col-12 date-div d-flex">
+                            <button class="btn orange btn-sm px-3 rounded-0">Date:</button>
+                            <input type="text" readonly class=" border-1 rounded-0 bg-light form-control px-3 p-1  " value="Enter date here by selecting from the pop-up">
+                           
+                        </div>
+
+                        </div>
+                    </div>
+                   
+
+                    <!-- col2-bottom-section -->
+                    <div class="col-6 ">
+                        <div class="row">
+                            <!-- col1-label -->
+                        <div class="col-4 d-block">
+                           <div class="mb-4 mt-2"> <label for="payment">Payment Method</label>  </div>
+                           <div class="mb-4 "> <label for="ref">Ref#</label></div>
+                           <div class="mb-4 "> <label for="">Order #</label></div>
+                           <div > <label for="">Sales Rep</label></div>
+                        </div>
+                        <!-- col2-form-controls -->
+                        <div class="col-8">
+                            <div class="payment-method mt-2 mb-3">
+                                <select class="form-select p-1" aria-label="Default select example">
+                                    <option  selected value="1">Cash</option>
+                                    <option value="2">Credit/Debit card</option>
+                                    <option value="3">Bank Transfer</option>
+                                    <option value="3">M-pesa</option>
+
+                                  </select>
+                            </div>
+                            <div class="ref-div mb-2">
+                                <input type="text" class="form-control p-1">
+                            </div>
+                            <div class="order-div mb-2">
+                                <input type="text" class="form-control p-1">
+                            </div>
+                            <div class="sales-rep-div">
+                                <select class="form-select p-1" aria-label="Default select example">
+                                    <option  selected value="jane">Jane</option>
+                                    <option value="kane">Kane</option>
+                                    <option value="john">John</option>
+                                  </select>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Bottom-btn -->
+                <div class="bottom-btn-div d-flex justify-content-end mb-3">
+                    <button id="reset-btn" class="btn btn-danger  btn-md p-1 px-3 mx-1 "><i class="fas fa-times"></i>Reset</button>
+                    <button type="submit" class="btn orange btn-md p-1 px-3"><i class="fas fa-shopping-cart"></i>Submit</button>
+                </div>
+            </div>
+
+
+        </form>
+
+
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+    <script src="main.js"></script>
+</body>
+
+</html>

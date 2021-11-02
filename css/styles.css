@@ -1,0 +1,12 @@
+.orange{
+    background-color: orangered;
+    color: #fff;
+
+}
+.fas,.fal{
+    font-size: small;
+    margin-right: 5px;
+}
+label{
+    font-weight: 500;
+}
