@@ -82,6 +82,8 @@ class UI {
     );
     
    document.querySelector("#totalAmt").value=totalObj.total_price;
+//    document.getElementById("totalTopReading").value=totalObj.total_price;
+//    document.querySelector(".qty-display").value=500;
 }
 
     // delete sale record
@@ -261,7 +263,7 @@ document.getElementById('addBtn').addEventListener('click', (e) => {
 
     ui.addSaleRecord(sale);
     ui.totalPriceCalc();
-    // ui.showDateAlert();
+
     e.preventDefault();
 });
 
@@ -273,6 +275,22 @@ document.getElementById('record-list').addEventListener('click', function (e) {
     ui.deleteSale(e.target);
     
 });
+
+// select date from calendar
+    document.getElementById('dateSelection').addEventListener('click',(e)=>{
+      document.getElementById('dateSelection').setAttribute("type", "date");
+
+    //  function getDate(){
+    //     var todaydate = new Date();
+    //     var day = todaydate.getDate();
+    //     var month = todaydate.getMonth() + 1;
+    //     var year = todaydate.getFullYear();
+    //     var dateString = day + "/" + month + "/" + year;
+    //     document.getElementById('dateSelection').value = datestring;
+    //    } 
+    //    document.getElementById('dateSelection').value=getDate();
+
+    });
 
 // reset eventListener
 document.querySelector('#reset-btn').addEventListener('click',(e)=>{
